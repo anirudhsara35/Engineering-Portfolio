@@ -227,6 +227,12 @@
     font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .8rem;
     letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 14px;
   }
+  .fav-badge {
+    display: inline-block; background: var(--red); color: #fff;
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .78rem;
+    letter-spacing: .06em; text-transform: uppercase; padding: 7px 16px;
+    border-radius: 999px; margin-bottom: 14px; box-shadow: 0 6px 16px rgba(230,57,70,.35);
+  }
   .spotlight-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.25; }
   .spotlight-text p { color: #444; line-height: 1.75; margin-bottom: 24px; }
   .spotlight-alt .spotlight-photo { order: 2; }
@@ -371,13 +377,14 @@
   </section>
 
   <section class="spotlight">
-    <div class="spotlight-photo">
-      <div style="display:flex;gap:6px;aspect-ratio:4/3">
-        <img src="images/fingerwrench-cover.jpg" alt="SolidWorks engineering drawing of the Finger Wrench" style="width:50%;height:100%;object-fit:cover;display:block">
-        <img src="images/fingerwrench-shopify.jpg" alt="Shopify dashboard showing 412 orders of the Finger Wrench" style="width:50%;height:100%;object-fit:cover;display:block">
+    <div class="spotlight-photo" style="background:#fff">
+      <div style="position:relative">
+        <img src="images/fingerwrench-shopify.jpg" alt="Shopify dashboard showing 412 orders of the Finger Wrench" style="width:100%;display:block">
+        <img src="images/fingerwrench-cover.jpg" alt="SolidWorks engineering drawing of the Finger Wrench" style="position:absolute;left:16px;bottom:16px;width:36%;border-radius:8px;border:4px solid #fff;box-shadow:0 12px 26px rgba(0,0,0,.3);transform:rotate(-4deg)">
       </div>
     </div>
     <div class="spotlight-text">
+      <div class="fav-badge">&#9733; My Favorite Project</div>
       <div class="spotlight-eyebrow">Featured Work</div>
       <h2>I Turned a Robotics Annoyance Into a Small Business</h2>
       <p>Reaching a bolt in a tight spot on a robot usually means tearing half of it apart. So I designed the Finger Wrench, a 3D-printed ring with a hex socket that turns your own finger into the tool. I printed them in bulk out of nylon and sold them through Shopify and in person at competitions: <strong>$3,090 in real sales</strong>, 412 wrenches, one $7.50 sale at a time.</p>
@@ -386,6 +393,18 @@
   </section>
 
   <section class="spotlight spotlight-alt">
+    <div class="spotlight-photo">
+      <img src="images/cad-differential-assembly.jpg" alt="CAD render of an automotive-style open differential assembly">
+    </div>
+    <div class="spotlight-text">
+      <div class="spotlight-eyebrow">Featured Work</div>
+      <h2>Modeling a Real Automotive Differential</h2>
+      <p>After a season of building VEX differentials out of small plastic gears, I got curious how the real automotive version actually works. So I modeled a full scale bevel gear differential from scratch in SolidWorks: the ring gear, the spider gears, the side gears, and every axle shaft, rendered from every angle including a full section cut and an exploded view.</p>
+      <a class="btn-pill" onclick="go('caddiff')" style="cursor:pointer">Read the Full Story</a>
+    </div>
+  </section>
+
+  <section class="spotlight">
     <div class="spotlight-photo">
       <img src="images/rest-fig4.png" alt="Patent drawing of the R.E.S.T. surgical robot docking station">
     </div>
@@ -397,7 +416,7 @@
     </div>
   </section>
 
-  <section class="spotlight">
+  <section class="spotlight spotlight-alt">
     <div class="spotlight-photo">
       <a class="video-thumb" href="https://youtu.be/GLQDsC2emig" target="_blank" rel="noopener" style="margin:0;max-width:none;border-radius:0">
         <img src="images/tessell-streamlit.jpg" alt="The AI-Powered Data Platform Assistant Streamlit app, click to watch on YouTube">
@@ -690,7 +709,7 @@
 
     <div class="tile" data-cat="teams personal" onclick="go('caddiff')">
       <div class="tile-media" style="padding:0">
-        <img src="images/cad-differential.jpg" alt="CAD model of an automotive-style differential" style="width:100%;height:100%;object-fit:cover;max-width:none;max-height:none">
+        <img src="images/cad-differential-assembly.jpg" alt="CAD model of an automotive-style open differential" style="width:100%;height:100%;object-fit:cover;max-width:none;max-height:none">
       </div>
       <div class="tile-label">Differential CAD Model</div>
       <div class="tile-overlay">
@@ -1616,7 +1635,7 @@ int trackPos(){
 </div>
 
 <div class="page" id="page-caddiff">
-  <div class="banner banner-sm banner-photo" style="--banner-img:url('images/cad-differential.jpg')">
+  <div class="banner banner-sm banner-photo" style="--banner-img:url('images/cad-differential-assembly.jpg')">
     <nav>
       <a class="logo" onclick="go('home')">AS</a>
       <div class="nav-links">
@@ -1630,18 +1649,29 @@ int trackPos(){
     <p><strong>Personal Project · SolidWorks</strong></p>
     <p>This one was not for a competition or a client, it was pure curiosity. After spending a season building VEX differentials out of small plastic gears, we got fascinated with how the real automotive version works: the bevel gear differential that lets a car's rear wheels spin at different speeds through a turn while still both receiving power from the same driveshaft. We wanted to actually understand the mechanism, not just use the VEX approximation of it, so we modeled a full scale style automotive differential from scratch in SolidWorks.</p>
     <figure class="art-fig">
-      <img src="images/cad-differential.jpg" alt="SolidWorks CAD renders of an automotive-style bevel gear differential from three angles">
-      <figcaption>Three views of the completed CAD assembly: the ring gear housing, the spider gears inside, and the two axle shafts exiting the case.</figcaption>
+      <img src="images/cad-differential-assembly.jpg" alt="Open differential CAD assembly, isometric view">
+      <figcaption>The completed CAD assembly: ring gear, differential case, and the two axle shafts exiting either side.</figcaption>
     </figure>
     <h2>What's Actually Modeled</h2>
     <p>The assembly includes the large ring gear that receives input from the driveshaft's pinion gear, the differential case that the ring gear bolts to, a spider gear carrier with bevel pinion gears mounted inside, and the two side bevel gears that connect to independent axle shafts. When the car drives straight, the whole carrier spins as one unit and both axles turn at the same speed. When the car turns, the outer wheel needs to travel farther and spin faster than the inner wheel, and that is where the spider gears earn their keep: they roll around the stationary side gears, letting the two axle outputs split speed unevenly while still both receiving torque from the same ring gear.</p>
+    <figure class="art-fig">
+      <div class="fig-row">
+        <img src="images/cad-differential-ringside.jpg" alt="Ring gear and drive pinion mesh, CAD view">
+        <img src="images/cad-differential-gearset.jpg" alt="Gear train with the differential case hidden, showing the internal spider and side gears">
+      </div>
+      <figcaption>Left: the ring gear meshing with the drive pinion. Right: the case hidden, showing the spider gears carried inside meshing with both side gears.</figcaption>
+    </figure>
     <p>Getting the bevel gear meshing to look and behave correctly in CAD, matching pitch cones so the ring gear, pinion, and spider gears all mesh at the correct angles, took real trial and error. It is a much more elegant solution than anything we had built with VEX parts, and modeling it by hand was the best way to actually understand torque and speed splitting instead of just taking it on faith from a textbook diagram.</p>
     <figure class="art-fig">
-      <img src="images/cad-differential-2d.jpg" alt="Labeled 2D exploded diagram of the automotive differential: ring gear, differential case, side gears, pinion gears, cross shaft, and output shaft">
-      <figcaption>Every part broken out and labeled: ring gear, differential case, side gears, pinion gears, cross shaft, and output shaft.</figcaption>
+      <img src="images/cad-differential-section.jpg" alt="Section view of the differential, carrier and ring gear sectioned">
+      <figcaption>A sectioned view through the carrier and ring gear, showing how the spider gears sit on their cross shaft inside the case.</figcaption>
     </figure>
     <h2>Why It Mattered</h2>
     <p>This project has no scoreboard and no deadline, which is exactly what made it valuable. It let the differential idea we had already used competitively in the Power Split project connect to the real engineering behind it, and it is the kind of CAD practice that sharpens the skills that show up everywhere else on this page: careful mate relationships, gear ratio math, and patience with a model that will not quite mesh right until every dimension lines up.</p>
+    <figure class="art-fig">
+      <img src="images/cad-differential-exploded.jpg" alt="Exploded view of every part in the differential assembly">
+      <figcaption>Every part broken out: ring gear, case, spider gears, side gears, cross shaft, bearings, and retaining hardware.</figcaption>
+    </figure>
   </div>
   <div class="back-link"><a class="btn-pill" onclick="go('projects')" style="cursor:pointer">Back to Projects</a></div>
 </div>
